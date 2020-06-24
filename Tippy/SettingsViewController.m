@@ -23,6 +23,15 @@
     // Do any additional setup after loading the view.
     
 }
+- (void)viewWillAppear:(BOOL)animated {
+[super viewWillAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [self.percentOneField setText: [@([defaults integerForKey:@"default_tip_percentage1"]) stringValue]];
+    [self.percentTwoField setText:[@([defaults integerForKey:@"default_tip_percentage2"]) stringValue]];
+    [self.percentThreeField setText:[@([defaults integerForKey:@"default_tip_percentage3"]) stringValue]];
+
+}
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];
 }
